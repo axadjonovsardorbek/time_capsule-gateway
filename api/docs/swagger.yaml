@@ -1,0 +1,1757 @@
+definitions:
+  genproto.CommentsCreateReq:
+    properties:
+      content:
+        type: string
+      memory_id:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CommentsGetAllRes:
+    properties:
+      comments:
+        items:
+          $ref: '#/definitions/genproto.CommentsRes'
+        type: array
+      count:
+        type: integer
+    type: object
+  genproto.CommentsGetByIdRes:
+    properties:
+      comment:
+        $ref: '#/definitions/genproto.CommentsRes'
+    type: object
+  genproto.CommentsRes:
+    properties:
+      content:
+        type: string
+      id:
+        type: string
+      memory_id:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.ContextRes:
+    properties:
+      historical:
+        $ref: '#/definitions/genproto.HistoricalEventsGetAllRes'
+      personal:
+        $ref: '#/definitions/genproto.PersonalEventsGetAllRes'
+    type: object
+  genproto.CustomEventsCreateReq:
+    properties:
+      category:
+        type: string
+      date:
+        type: string
+      description:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CustomEventsGetAllRes:
+    properties:
+      count:
+        type: integer
+      events:
+        items:
+          $ref: '#/definitions/genproto.CustomEventsRes'
+        type: array
+    type: object
+  genproto.CustomEventsGetByIdRes:
+    properties:
+      event:
+        $ref: '#/definitions/genproto.CustomEventsRes'
+    type: object
+  genproto.CustomEventsRes:
+    properties:
+      category:
+        type: string
+      date:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.HistoricalEventsCreateReq:
+    properties:
+      category:
+        type: string
+      date:
+        type: string
+      description:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.HistoricalEventsGetAllRes:
+    properties:
+      count:
+        type: integer
+      events:
+        items:
+          $ref: '#/definitions/genproto.HistoricalEventsRes'
+        type: array
+    type: object
+  genproto.HistoricalEventsGetByIdRes:
+    properties:
+      event:
+        $ref: '#/definitions/genproto.HistoricalEventsRes'
+    type: object
+  genproto.HistoricalEventsRes:
+    properties:
+      category:
+        type: string
+      date:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.MediasCreateReq:
+    properties:
+      memory_id:
+        type: string
+      type:
+        type: string
+      url:
+        type: string
+    type: object
+  genproto.MediasGetAllRes:
+    properties:
+      count:
+        type: integer
+      medias:
+        items:
+          $ref: '#/definitions/genproto.MediasRes'
+        type: array
+    type: object
+  genproto.MediasGetByIdRes:
+    properties:
+      media:
+        $ref: '#/definitions/genproto.MediasRes'
+    type: object
+  genproto.MediasRes:
+    properties:
+      id:
+        type: string
+      memory_id:
+        type: string
+      type:
+        type: string
+      url:
+        type: string
+    type: object
+  genproto.MemoriesCreateReq:
+    properties:
+      date:
+        type: string
+      description:
+        type: string
+      location:
+        type: string
+      place_name:
+        type: string
+      privacy:
+        type: string
+      tags:
+        items:
+          type: string
+        type: array
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.MemoriesGetAllRes:
+    properties:
+      count:
+        type: integer
+      memories:
+        items:
+          $ref: '#/definitions/genproto.MemoriesRes'
+        type: array
+    type: object
+  genproto.MemoriesGetByIdRes:
+    properties:
+      memory:
+        $ref: '#/definitions/genproto.MemoriesRes'
+    type: object
+  genproto.MemoriesRes:
+    properties:
+      date:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      location:
+        type: string
+      place_name:
+        type: string
+      privacy:
+        type: string
+      tags:
+        items:
+          type: integer
+        type: array
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.MilestonesCreateReq:
+    properties:
+      category:
+        type: string
+      date:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.MilestonesGetAllRes:
+    properties:
+      count:
+        type: integer
+      milestones:
+        items:
+          $ref: '#/definitions/genproto.MilestonesRes'
+        type: array
+    type: object
+  genproto.MilestonesGetByIdRes:
+    properties:
+      milestone:
+        $ref: '#/definitions/genproto.MilestonesRes'
+    type: object
+  genproto.MilestonesRes:
+    properties:
+      category:
+        type: string
+      date:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.PersonalEventsCreateReq:
+    properties:
+      date:
+        type: string
+      preview:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.PersonalEventsGetAllRes:
+    properties:
+      count:
+        type: integer
+      events:
+        items:
+          $ref: '#/definitions/genproto.PersonalEventsRes'
+        type: array
+    type: object
+  genproto.PersonalEventsGetByIdRes:
+    properties:
+      event:
+        $ref: '#/definitions/genproto.PersonalEventsRes'
+    type: object
+  genproto.PersonalEventsRes:
+    properties:
+      date:
+        type: string
+      id:
+        type: string
+      preview:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.SharedMemoriesCreateReq:
+    properties:
+      memory_id:
+        type: string
+      message:
+        type: string
+      recipient_id:
+        type: string
+      shared_id:
+        type: string
+    type: object
+  genproto.SharedMemoriesGetAllRes:
+    properties:
+      count:
+        type: integer
+      memories:
+        items:
+          $ref: '#/definitions/genproto.SharedMemoriesRes'
+        type: array
+    type: object
+  genproto.SharedMemoriesGetByIdRes:
+    properties:
+      memory:
+        $ref: '#/definitions/genproto.SharedMemoriesRes'
+    type: object
+  genproto.SharedMemoriesRes:
+    properties:
+      id:
+        type: string
+      memory_id:
+        type: string
+      message:
+        type: string
+      recipient_id:
+        type: string
+      shared_at:
+        type: string
+      shared_id:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /memory:
+    post:
+      consumes:
+      - application/json
+      description: Create a new memory
+      parameters:
+      - description: Memory data
+        in: body
+        name: memory
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.MemoriesCreateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Memory created
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create memory
+      tags:
+      - memory
+  /memory/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a memory by ID
+      parameters:
+      - description: Memory ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Memory deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid memory ID
+          schema:
+            type: string
+        "404":
+          description: Memory not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete memory
+      tags:
+      - memory
+    get:
+      consumes:
+      - application/json
+      description: Get a memory
+      parameters:
+      - description: Memory ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.MemoriesGetByIdRes'
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get memory
+      tags:
+      - memory
+    put:
+      consumes:
+      - application/json
+      description: Update an existing memory
+      parameters:
+      - description: Id
+        in: query
+        name: id
+        type: string
+      - description: Title
+        in: query
+        name: title
+        type: string
+      - description: Description
+        in: query
+        name: description
+        type: string
+      - description: Privacy
+        in: query
+        name: privacy
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Memory updated
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "404":
+          description: Memory not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update memory
+      tags:
+      - memory
+  /memory/{id}/comment:
+    post:
+      consumes:
+      - application/json
+      description: Create a new comment
+      parameters:
+      - description: Comment data
+        in: body
+        name: comment
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CommentsCreateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Comment created
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create comment
+      tags:
+      - comment
+  /memory/{id}/comment/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a comment by ID
+      parameters:
+      - description: Comment ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Comment deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid comment ID
+          schema:
+            type: string
+        "404":
+          description: Comment not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete comment
+      tags:
+      - comment
+    get:
+      consumes:
+      - application/json
+      description: Get a comment
+      parameters:
+      - description: Comment ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.CommentsGetByIdRes'
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get comment
+      tags:
+      - comment
+    put:
+      consumes:
+      - application/json
+      description: Update an existing comment
+      parameters:
+      - description: Id
+        in: query
+        name: id
+        type: string
+      - description: Content
+        in: query
+        name: content
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Comment updated
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "404":
+          description: Comment not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update comment
+      tags:
+      - comment
+  /memory/{id}/comment/all:
+    get:
+      consumes:
+      - application/json
+      description: Get all comment
+      parameters:
+      - description: UserId
+        in: query
+        name: user_id
+        type: string
+      - description: MemoryId
+        in: query
+        name: memory_id
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.CommentsGetAllRes'
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get all comment
+      tags:
+      - comment
+  /memory/{id}/media:
+    post:
+      consumes:
+      - application/json
+      description: Create a new media
+      parameters:
+      - description: Media data
+        in: body
+        name: media
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.MediasCreateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Media created
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create media
+      tags:
+      - media
+  /memory/{id}/media/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a media by ID
+      parameters:
+      - description: Media ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Media deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid media ID
+          schema:
+            type: string
+        "404":
+          description: Media not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete media
+      tags:
+      - media
+    get:
+      consumes:
+      - application/json
+      description: Get a media
+      parameters:
+      - description: Media ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.MediasGetByIdRes'
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get media
+      tags:
+      - media
+    put:
+      consumes:
+      - application/json
+      description: Update an existing media
+      parameters:
+      - description: Id
+        in: query
+        name: id
+        type: string
+      - description: Type
+        in: query
+        name: type
+        type: string
+      - description: Url
+        in: query
+        name: url
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Media updated
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "404":
+          description: Media not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update media
+      tags:
+      - media
+  /memory/{id}/media/all:
+    get:
+      consumes:
+      - application/json
+      description: Get all medias
+      parameters:
+      - description: MemoryId
+        in: query
+        name: memory_id
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.MediasGetAllRes'
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get all medias
+      tags:
+      - media
+  /memory/{id}/shared:
+    post:
+      consumes:
+      - application/json
+      description: Shared a new memory
+      parameters:
+      - description: SharedMemory data
+        in: body
+        name: memory
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.SharedMemoriesCreateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: SharedMemory created
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Shared memory
+      tags:
+      - shared
+  /memory/{id}/shared/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a memory by ID
+      parameters:
+      - description: Memory ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Memory deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid memory ID
+          schema:
+            type: string
+        "404":
+          description: Memory not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete memory
+      tags:
+      - shared
+    get:
+      consumes:
+      - application/json
+      description: Get a memory
+      parameters:
+      - description: SharedMemory ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.SharedMemoriesGetByIdRes'
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get memory
+      tags:
+      - shared
+    put:
+      consumes:
+      - application/json
+      description: Update an existing shared memory
+      parameters:
+      - description: Id
+        in: query
+        name: id
+        type: string
+      - description: Message
+        in: query
+        name: message
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Memory updated
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "404":
+          description: Memory not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update shared memory
+      tags:
+      - shared
+  /memory/{id}/shared/all:
+    get:
+      consumes:
+      - application/json
+      description: Get all memories
+      parameters:
+      - description: SharedId
+        in: query
+        name: shared_id
+        type: string
+      - description: RecipientId
+        in: query
+        name: recipient_id
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.SharedMemoriesGetAllRes'
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get all memories
+      tags:
+      - shared
+  /memory/all:
+    get:
+      consumes:
+      - application/json
+      description: Get all memories
+      parameters:
+      - description: UserId
+        in: query
+        name: user_id
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.MemoriesGetAllRes'
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get all memories
+      tags:
+      - memory
+  /timeline/context/{date}:
+    get:
+      consumes:
+      - application/json
+      description: Get all event
+      parameters:
+      - description: Date
+        in: query
+        name: date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.ContextRes'
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get all event
+      tags:
+      - context
+  /timeline/custom-event:
+    post:
+      consumes:
+      - application/json
+      description: Create a new event
+      parameters:
+      - description: Event data
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CustomEventsCreateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Event created
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create event
+      tags:
+      - event
+  /timeline/custom-event/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a event by ID
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Event deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid event ID
+          schema:
+            type: string
+        "404":
+          description: Event not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete event
+      tags:
+      - event
+    get:
+      consumes:
+      - application/json
+      description: Get a event
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.CustomEventsGetByIdRes'
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get event
+      tags:
+      - event
+    put:
+      consumes:
+      - application/json
+      description: Update an existing event
+      parameters:
+      - description: Id
+        in: query
+        name: id
+        type: string
+      - description: Title
+        in: query
+        name: title
+        type: string
+      - description: Description
+        in: query
+        name: description
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Event updated
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "404":
+          description: Event not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update event
+      tags:
+      - event
+  /timeline/custom-event/all:
+    get:
+      consumes:
+      - application/json
+      description: Get all event
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.CustomEventsGetAllRes'
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get all event
+      tags:
+      - event
+  /timeline/historical:
+    post:
+      consumes:
+      - application/json
+      description: Create a new event
+      parameters:
+      - description: Event data
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.HistoricalEventsCreateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Event created
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create event
+      tags:
+      - historical
+  /timeline/historical/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a event by ID
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Event deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid event ID
+          schema:
+            type: string
+        "404":
+          description: Event not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete event
+      tags:
+      - historical
+    get:
+      consumes:
+      - application/json
+      description: Get a event
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.HistoricalEventsGetByIdRes'
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get event
+      tags:
+      - historical
+    put:
+      consumes:
+      - application/json
+      description: Update an existing event
+      parameters:
+      - description: Id
+        in: query
+        name: id
+        type: string
+      - description: Title
+        in: query
+        name: title
+        type: string
+      - description: Description
+        in: query
+        name: description
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Event updated
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "404":
+          description: Event not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update event
+      tags:
+      - historical
+  /timeline/historical/all:
+    get:
+      consumes:
+      - application/json
+      description: Get all event
+      parameters:
+      - description: Date
+        in: query
+        name: date
+        type: string
+      - description: Category
+        in: query
+        name: category
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.HistoricalEventsGetAllRes'
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get all event
+      tags:
+      - historical
+  /timeline/milestone:
+    post:
+      consumes:
+      - application/json
+      description: Create a new milestone
+      parameters:
+      - description: Milestone data
+        in: body
+        name: memory
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.MilestonesCreateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Milestone created
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create milestone
+      tags:
+      - milestone
+  /timeline/milestone/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a milestone by ID
+      parameters:
+      - description: Milestone ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Milestone deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid milestone ID
+          schema:
+            type: string
+        "404":
+          description: Milestone not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete milestone
+      tags:
+      - milestone
+    get:
+      consumes:
+      - application/json
+      description: Get a milestone
+      parameters:
+      - description: Milestone ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.MilestonesGetByIdRes'
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get milestone
+      tags:
+      - milestone
+    put:
+      consumes:
+      - application/json
+      description: Update an existing milestone
+      parameters:
+      - description: Id
+        in: query
+        name: id
+        type: string
+      - description: Title
+        in: query
+        name: title
+        type: string
+      - description: Date
+        in: query
+        name: date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Milestone updated
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "404":
+          description: Milestone not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update milestone
+      tags:
+      - milestone
+  /timeline/milestone/all:
+    get:
+      consumes:
+      - application/json
+      description: Get all milestones
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.MilestonesGetAllRes'
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get all milestones
+      tags:
+      - milestone
+  /timeline/personal:
+    post:
+      consumes:
+      - application/json
+      description: Create a new event
+      parameters:
+      - description: Event data
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.PersonalEventsCreateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Event created
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create event
+      tags:
+      - personal
+  /timeline/personal/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a event by ID
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Event deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid event ID
+          schema:
+            type: string
+        "404":
+          description: Event not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete event
+      tags:
+      - personal
+    get:
+      consumes:
+      - application/json
+      description: Get a event
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.PersonalEventsGetByIdRes'
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get event
+      tags:
+      - personal
+    put:
+      consumes:
+      - application/json
+      description: Update an existing event
+      parameters:
+      - description: Id
+        in: query
+        name: id
+        type: string
+      - description: Title
+        in: query
+        name: title
+        type: string
+      - description: Preview
+        in: query
+        name: preview
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Event updated
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "404":
+          description: Event not found
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update event
+      tags:
+      - personal
+  /timeline/personal/all:
+    get:
+      consumes:
+      - application/json
+      description: Get all event
+      parameters:
+      - description: Date
+        in: query
+        name: date
+        type: string
+      - description: Type
+        in: query
+        name: type
+        type: string
+      - description: Page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/genproto.PersonalEventsGetAllRes'
+        "400":
+          description: Invalid parameters
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get all event
+      tags:
+      - personal
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
