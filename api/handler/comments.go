@@ -9,6 +9,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt"
 )
 
 // CommentCreate handles the creation of a new comment.
@@ -24,6 +25,14 @@ import (
 // @Security BearerAuth
 // @Router /memory/{id}/comment [post]
 func (h *Handler) CommentCreate(c *gin.Context) {
+	claims, exists := c.Get("claims")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+		return
+	}
+
+	id := claims.(jwt.MapClaims)["user_id"].(string)
+
 	var req cp.CommentsCreateReq
 
 	if err := c.BindJSON(&req); err != nil {
@@ -31,6 +40,8 @@ func (h *Handler) CommentCreate(c *gin.Context) {
 		return
 	}
 
+	req.UserId = id
+	
 	_, err := h.srvs.Comment.Create(context.Background(), &req)
 
 	if err != nil {
@@ -70,7 +81,6 @@ func (h *Handler) CommentGetById(c *gin.Context) {
 // @Tags comment
 // @Accept json
 // @Produce json
-// @Param user_id query string false "UserId"
 // @Param memory_id query string false "MemoryId"
 // @Param page query integer false "Page"
 // @Success 200 {object} cp.CommentsGetAllRes
@@ -79,8 +89,15 @@ func (h *Handler) CommentGetById(c *gin.Context) {
 // @Security BearerAuth
 // @Router /memory/{id}/comment/all [get]
 func (h *Handler) CommentGetAll(c *gin.Context) {
+	claims, exists := c.Get("claims")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+		return
+	}
+
+	id := claims.(jwt.MapClaims)["user_id"].(string)
 	req := cp.CommentsGetAllReq{
-		UserId:   c.Query("user_id"),
+		UserId:   id,
 		MemoryId: c.Query("memory_id"),
 		Filter:   &cp.Filter{},
 	}

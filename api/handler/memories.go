@@ -9,6 +9,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt"
 )
 
 // MemoryCreate handles the creation of a new memory.
@@ -24,12 +25,22 @@ import (
 // @Security BearerAuth
 // @Router /memory [post]
 func (h *Handler) MemoryCreate(c *gin.Context) {
+	claims, exists := c.Get("claims")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+		return
+	}
+
+	id := claims.(jwt.MapClaims)["user_id"].(string)
+
 	var req cp.MemoriesCreateReq
 
 	if err := c.BindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request payload"})
 		return
 	}
+
+	req.UserId = id
 
 	_, err := h.srvs.Memory.Create(context.Background(), &req)
 
@@ -70,7 +81,6 @@ func (h *Handler) MemoryGetById(c *gin.Context) {
 // @Tags memory
 // @Accept json
 // @Produce json
-// @Param user_id query string false "UserId"
 // @Param page query integer false "Page"
 // @Success 200 {object} cp.MemoriesGetAllRes
 // @Failure 400 {object} string "Invalid parameters"
@@ -78,8 +88,16 @@ func (h *Handler) MemoryGetById(c *gin.Context) {
 // @Security BearerAuth
 // @Router /memory/all [get]
 func (h *Handler) MemoryGetAll(c *gin.Context) {
+	claims, exists := c.Get("claims")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+		return
+	}
+
+	id := claims.(jwt.MapClaims)["user_id"].(string)
+
 	req := cp.MemoriesGetAllReq{
-		UserId: c.Query("user_id"),
+		UserId: id,
 		Filter: &cp.Filter{},
 	}
 

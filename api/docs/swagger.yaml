@@ -621,10 +621,6 @@ paths:
       - application/json
       description: Get all comment
       parameters:
-      - description: UserId
-        in: query
-        name: user_id
-        type: string
       - description: MemoryId
         in: query
         name: memory_id
@@ -1003,10 +999,6 @@ paths:
       - application/json
       description: Get all memories
       parameters:
-      - description: UserId
-        in: query
-        name: user_id
-        type: string
       - description: Page
         in: query
         name: page

@@ -9,6 +9,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt"
 )
 
 // SharedMemoryCreate handles the creation of a new memory.
@@ -24,12 +25,22 @@ import (
 // @Security BearerAuth
 // @Router /memory/{id}/shared [post]
 func (h *Handler) SharedMemoryCreate(c *gin.Context) {
+	claims, exists := c.Get("claims")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+		return
+	}
+
+	id := claims.(jwt.MapClaims)["user_id"].(string)
+
 	var req cp.SharedMemoriesCreateReq
 
 	if err := c.BindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request payload"})
 		return
 	}
+
+	req.SharedId = id
 
 	_, err := h.srvs.SharedMemory.Create(context.Background(), &req)
 

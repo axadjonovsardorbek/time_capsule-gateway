@@ -86,12 +86,6 @@ const docTemplate = `{
                 "summary": "Get all memories",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "UserId",
-                        "name": "user_id",
-                        "in": "query"
-                    },
-                    {
                         "type": "integer",
                         "description": "Page",
                         "name": "page",
@@ -362,12 +356,6 @@ const docTemplate = `{
                 ],
                 "summary": "Get all comment",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "description": "UserId",
-                        "name": "user_id",
-                        "in": "query"
-                    },
                     {
                         "type": "string",
                         "description": "MemoryId",

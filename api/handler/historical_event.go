@@ -24,6 +24,14 @@ import (
 // @Security BearerAuth
 // @Router /timeline/historical [post]
 func (h *Handler) HistoricalEventCreate(c *gin.Context) {
+	claims, exists := c.Get("claims")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+		return
+	}
+
+	id := claims.(jwt.MapClaims)["user_id"].(string)
+
 	var req cp.HistoricalEventsCreateReq
 	var event cp.HistoricalEventsRes
 
@@ -35,7 +43,7 @@ func (h *Handler) HistoricalEventCreate(c *gin.Context) {
 	event.Category = req.Category
 	event.Date = req.Date
 	event.Description = req.Description
-	event.UserId = req.UserId
+	event.UserId = id
 	event.Title = req.Title
 
 	_, err := h.srvs.HistoricalEvent.Create(context.Background(), &event)

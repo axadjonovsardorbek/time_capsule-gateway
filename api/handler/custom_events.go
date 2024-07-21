@@ -24,12 +24,21 @@ import (
 // @Security BearerAuth
 // @Router /timeline/custom-event [post]
 func (h *Handler) EventCreate(c *gin.Context) {
+	claims, exists := c.Get("claims")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+		return
+	}
+
+	id := claims.(jwt.MapClaims)["user_id"].(string)
 	var req cp.CustomEventsCreateReq
 
 	if err := c.BindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request payload"})
 		return
 	}
+
+	req.UserId = id
 
 	_, err := h.srvs.CustomEvent.Create(context.Background(), &req)
 

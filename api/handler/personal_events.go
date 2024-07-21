@@ -24,6 +24,14 @@ import (
 // @Security BearerAuth
 // @Router /timeline/personal [post]
 func (h *Handler) PersonalEventCreate(c *gin.Context) {
+	claims, exists := c.Get("claims")
+	if !exists {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
+		return
+	}
+
+	id := claims.(jwt.MapClaims)["user_id"].(string)
+
 	var req cp.PersonalEventsCreateReq
 	var event cp.PersonalEventsRes
 
@@ -35,7 +43,7 @@ func (h *Handler) PersonalEventCreate(c *gin.Context) {
 	event.Preview = req.Preview
 	event.Date = req.Date
 	event.Type = req.Type
-	event.UserId = req.UserId
+	event.UserId = id
 	event.Title = req.Title
 
 	_, err := h.srvs.PersonalEvent.Create(context.Background(), &event)
